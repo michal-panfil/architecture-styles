@@ -5,10 +5,10 @@ namespace CleanArchitecture.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CargoOrderController : ControllerBase
+    public class ResourcesController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get()
+        public List< Get()
         {
             return Ok("Hello World");
         }
