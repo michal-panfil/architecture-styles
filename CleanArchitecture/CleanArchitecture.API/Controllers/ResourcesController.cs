@@ -11,10 +11,13 @@ namespace CleanArchitecture.API.Controllers
     public class ResourcesController : ControllerBase
     {
         private readonly IResourcesCreatable resourceCreator;
+        private readonly ILogger logger;
 
-        public ResourcesController(IResourcesCreatable resourceCreator)
+        public ResourcesController(IResourcesCreatable resourceCreator, ILogger<ResourcesController> logger)
         {
             this.resourceCreator = resourceCreator;
+            this.logger = logger;
+
         }
         
         [HttpGet]
@@ -32,7 +35,8 @@ namespace CleanArchitecture.API.Controllers
         [HttpPost]
         public IActionResult Post(CreateResurceRequest resource)
         {
-            this.resourceCreator.CreateResources(new List<Resource>() { new() };
+            this.logger.LogInformation($"Received new create resource rewuest:{resource.Name}");
+            this.resourceCreator.CreateResources(new List<Resource>() { new() });
             return Ok();
         }
 
