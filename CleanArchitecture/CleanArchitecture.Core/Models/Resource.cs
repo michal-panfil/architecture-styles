@@ -1,8 +1,7 @@
 ﻿namespace CleanArchitecture.Core.Models
 {
-    public class Resource
+    public class Resource : TEntity
     {
-        public Guid Id { get; set; }
         public string Name { get; set; } = String.Empty;
         public Guid ResourceGroupId { get; set; }
         public virtual ResourceGroup ResourceGroup { get; set; } = new ResourceGroup();

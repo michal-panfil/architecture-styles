@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CleanArchitecture.Core.Models
 {
-    public class ServiceProperty
+    public class ServiceProperty : TEntity
     {
         public string Type { get; set; }
         public string  Name { get; set; }

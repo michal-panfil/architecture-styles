@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace CleanArchitecture.Core.Models
 {
-    public class ResourceGroup
+    public class ResourceGroup : TEntity
     {
-        public Guid Id { get; set; }
         public string Name { get; set; } = String.Empty;
         public int LocationId { get; set; }
         public virtual Location Location { get; set; } = new Location();

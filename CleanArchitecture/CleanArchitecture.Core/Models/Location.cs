@@ -1,8 +1,7 @@
 ﻿namespace CleanArchitecture.Core.Models
 {
-    public class Location
+    public class Location : TEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

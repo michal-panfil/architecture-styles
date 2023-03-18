@@ -1,8 +1,7 @@
 ﻿namespace CleanArchitecture.Core.Models
 {
-    public class Subscription
+    public class Subscription : TEntity
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public Guid TenantId { get; set; }
         public Tenant Tenant { get; set; }  

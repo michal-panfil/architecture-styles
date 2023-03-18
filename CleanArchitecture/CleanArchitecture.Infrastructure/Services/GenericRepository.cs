@@ -1,4 +1,6 @@
 ﻿using CleanArchitecture.Core.Interfaces;
+using CleanArchitecture.Core.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,31 +9,32 @@ using System.Threading.Tasks;
 
 namespace CleanArchitecture.Infrastructure.Services
 {
-    public class GenericRepository<T> : IRepository<T> where T : class
+    public class GenericRepository<T> : IRepository<T> where T : TEntity
     {
-        public Task<T> Add(T entity)
+        private DbSet<T> table = null ;
+        public async Task Add(T entity)
         {
-            throw new NotImplementedException();
+            await this.table.AddAsync(entity);
         }
 
-        public Task Delete(T entity)
+        public void Delete(T entity)
         {
-            throw new NotImplementedException();
+             this.table.Remove(entity);
         }
 
-        public Task<IQueryable<T>> Get()
+        public async Task<IEnumerable<T>> Get()
         {
-            throw new NotImplementedException();
+            return await this.table.ToListAsync();
         }
 
-        public Task<T> GetById(Guid id)
+        public async Task<T> GetById(Guid id)
         {
-            throw new NotImplementedException();
+            return await this.table.FirstOrDefaultAsync(t => t.Id == id);
         }
 
-        public Task Update(T entity)
+        public void Update(T entity)
         {
-            throw new NotImplementedException();
+            this.table.Update(entity);
         }
     }
 }

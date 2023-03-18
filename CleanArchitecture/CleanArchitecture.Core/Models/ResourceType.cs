@@ -1,8 +1,7 @@
 ﻿namespace CleanArchitecture.Core.Models
 {
-    public class ResourceType
+    public class ResourceType : TEntity
     {
-        public Guid Id { get; set; }
         public string Name { get; set; } = String.Empty;
         public string LongName { get; set; } = String.Empty;
     }
